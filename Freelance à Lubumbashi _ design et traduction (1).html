@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Freelance à Lubumbashi : design et traduction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef3f0; --ink:#10211b; --muted:#4b5f57; --line:#c9d8d0;
+  --green:#0e6e52; --green-ink:#ffffff; --copper:#b4622c; --surface:#e2ebe6;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1a15; --ink:#e6f0ea; --muted:#9db3a9; --line:#24392f;
+    --green:#3fc79a; --green-ink:#08150f; --copper:#e39a64; --surface:#132720;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1a15; --ink:#e6f0ea; --muted:#9db3a9; --line:#24392f;
+  --green:#3fc79a; --green-ink:#08150f; --copper:#e39a64; --surface:#132720;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0}
+.brand{font:700 1.05rem var(--display);text-decoration:none}
+.top nav a{margin-left:1.1rem;text-decoration:none;color:var(--muted);font-weight:600}
+.top nav a:hover{color:var(--ink)}
+
+.hero{position:relative;padding:3.5rem 0 4rem;overflow:hidden}
+.hero::before{ /* bandes de malachite */
+  content:"";position:absolute;right:-8rem;top:-3rem;width:26rem;height:26rem;border-radius:50%;
+  background:repeating-radial-gradient(circle at 42% 38%,var(--green) 0 .7rem,transparent .7rem 1.5rem,var(--surface) 1.5rem 2.1rem,transparent 2.1rem 3rem);
+  opacity:.28;z-index:0;
+}
+.hero>*{position:relative;z-index:1}
+.hero p.who{margin:0 0 1rem;color:var(--muted);font-weight:600}
+h1{font:800 clamp(2.2rem,7.5vw,4.4rem)/1.04 var(--display);letter-spacing:-.025em;margin:0 0 1.25rem;max-width:16ch}
+.hero p.lead{max-width:34rem;font-size:1.2rem;margin:0 0 2rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--green);color:var(--green-ink);font:700 1rem var(--body);padding:.9rem 1.5rem;border-radius:.4rem;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);margin-left:.5rem}
+
+section{padding:3rem 0;border-top:1px solid var(--line)}
+h2{font:700 1.8rem/1.15 var(--display);margin:0 0 .5rem;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 1.75rem;max-width:36rem}
+
+.svc{list-style:none;margin:0;padding:0}
+.svc li{display:grid;grid-template-columns:1fr auto;gap:.25rem 1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.svc li:first-child{border-top:1px solid var(--line)}
+.svc h3{font:700 1.2rem var(--display);margin:0}
+.svc p{grid-column:1;margin:0;color:var(--muted)}
+.price{grid-row:1/3;grid-column:2;text-align:right;font-weight:600;color:var(--copper);white-space:nowrap}
+.price small{display:block;color:var(--muted);font-weight:400}
+
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:1rem}
+.steps li{counter-increment:s;padding-left:2.6rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--green);color:var(--green-ink);font:700 .95rem/1.9rem var(--display);text-align:center}
+.steps b{font-family:var(--display)}
+
+form.quote{display:grid;gap:1rem;max-width:30rem}
+label{display:grid;gap:.35rem;font-weight:600}
+input,select,textarea{font:inherit;padding:.75rem;border:2px solid var(--line);border-radius:.4rem;background:var(--surface);color:var(--ink);width:100%}
+textarea{min-height:6rem;resize:vertical}
+.note{color:var(--muted);font-size:.95rem;margin-top:1rem;max-width:34rem}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+@media (max-width:30rem){
+  .btn.ghost{margin:.6rem 0 0}
+  .top nav a:not(:last-child){display:none}
+  .svc li{grid-template-columns:1fr}
+  .price{grid-row:auto;grid-column:1;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#debut" id="brand">Stone</a>
+    <nav aria-label="Navigation"><a href="#services">Services</a><a href="#methode">Méthode</a><a href="#devis">Demander un devis</a></nav>
+  </header>
+
+  <main id="debut">
+    <div class="hero">
+      <p class="who">Freelance à Lubumbashi, travail à distance partout en RDC</p>
+      <h1>Des visuels et des textes clairs pour votre activité.</h1>
+      <p class="lead">Je crée vos affiches et logos et je traduis vos documents entre le français et l’anglais. Vous recevez un premier devis gratuit sous 24 heures.</p>
+      <a class="btn" href="#devis">Demander un devis</a>
+      <a class="btn ghost" id="wa-top" href="#">Écrire sur WhatsApp</a>
+    </div>
+
+    <section id="services" aria-labelledby="t-services">
+      <h2 id="t-services">Services et tarifs indicatifs</h2>
+      <p class="sub">Les prix varient selon le projet. Le devis final est toujours confirmé avant de commencer.</p>
+      <ul class="svc">
+        <li><h3>Design graphique</h3><p>Logos, affiches, visuels pour Facebook, Instagram et WhatsApp.</p><div class="price">50 000 à 150 000 CDF<small>par projet</small></div></li>
+        <li><h3>Traduction français ↔ anglais</h3><p>Documents d’entreprise, offres, CV et présentations. Utile pour les sociétés minières et leurs partenaires.</p><div class="price">15 000 à 25 000 CDF<small>par page</small></div></li>
+        
+        
+      </ul>
+    </section>
+
+    <section id="methode" aria-labelledby="t-methode">
+      <h2 id="t-methode">Comment ça se passe</h2>
+      <p class="sub">Une démarche simple, du premier message à la livraison.</p>
+      <ol class="steps">
+        <li><b>Vous décrivez votre besoin.</b> Par WhatsApp ou avec le formulaire ci-dessous.</li>
+        <li><b>Je vous envoie un devis.</b> Prix, délai et ce qui est inclus, par écrit.</li>
+        <li><b>Je commence après votre accord.</b> Vous validez une première version avant la suite.</li>
+        <li><b>Je livre et vous payez.</b> Par M-Pesa, Airtel Money ou Orange Money.</li>
+      </ol>
+    </section>
+
+    <section id="devis" aria-labelledby="t-devis">
+      <h2 id="t-devis">Demander un devis</h2>
+      <p class="sub">Le formulaire ouvre WhatsApp avec votre message déjà écrit.</p>
+      <form class="quote" id="form">
+        <label>Votre nom<input id="f-nom" autocomplete="name" required></label>
+        <label>Service
+          <select id="f-service">
+            <option>Design graphique</option>
+            <option>Traduction français ↔ anglais</option>
+            
+            
+          </select>
+        </label>
+        <label>Votre besoin<textarea id="f-msg" placeholder="Exemple : un logo pour ma boutique de vêtements"></textarea></label>
+        <button class="btn" type="submit">Envoyer sur WhatsApp</button>
+      </form>
+      <p class="note">Pour personnaliser ce site, remplacez le nom et le numéro WhatsApp dans les deux premières lignes du script en bas de la page.</p>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> <span id="foot-nom">Stone</span>, Lubumbashi, RDC</footer>
+</div>
+
+<script>
+// À MODIFIER : votre nom et votre numéro WhatsApp (format international, sans + ni espaces)
+var NOM = "Stone";
+var WHATSAPP = "243987775231";
+
+document.getElementById("brand").textContent = NOM;
+document.getElementById("foot-nom").textContent = NOM;
+document.getElementById("year").textContent = new Date().getFullYear();
+function wa(text){ return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text); }
+document.getElementById("wa-top").href = wa("Bonjour, j’ai vu votre site et j’aimerais un devis.");
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var n = document.getElementById("f-nom").value.trim();
+  var s = document.getElementById("f-service").value;
+  var m = document.getElementById("f-msg").value.trim();
+  var t = "Bonjour, je m’appelle " + n + ". Je voudrais un devis pour : " + s + "." + (m ? " " + m : "");
+  window.open(wa(t), "_blank", "noopener");
+});
+</script>
+</body>
+</html>
